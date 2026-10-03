@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Livraison à moto : je récupère et je livre pour vous. Commandez en 1 minute sur WhatsApp.">
+<meta name="theme-color" content="#243b34">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Chaya Seck · Livraison à moto">
+<meta property="og:description" content="Livraison à moto : je récupère et je livre pour vous. Commandez en 1 minute sur WhatsApp.">
+<meta property="og:url" content="https://seck93723-lang.github.io/touba/">
+<meta property="og:image" content="https://seck93723-lang.github.io/touba/anteprima.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<title>Chaya Seck · Livraison à moto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap">
+<style>
+/* Layout: road-green hero (name, hours, zones), one form card in numbered sections A→B, sticky-free big WhatsApp button */
+:root{--bg:#f3f1ec;--surface:#fff;--fg:#1d2320;--muted:#5f6862;--line:#d6d2c8;--accent:#d9621b;--accent-ink:#fff;--road:#243b34;--hero-fg:#f3efe6;--hero-sub:#d6dbd4;--wa:#1f8f4e;--ok:#2f7d4f;--err:#b42318;--soft:#f7e6da;
+ --display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;--body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#131816;--surface:#1c2320;--fg:#ecefe9;--muted:#9aa39d;--line:#2e3833;--accent:#f07a32;--accent-ink:#1a0e05;--road:#0d1311;--wa:#3fbf73;--ok:#5cc185;--err:#f97066;--soft:#33261d;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#131816;--surface:#1c2320;--fg:#ecefe9;--muted:#9aa39d;--line:#2e3833;--accent:#f07a32;--accent-ink:#1a0e05;--road:#0d1311;--wa:#3fbf73;--ok:#5cc185;--err:#f97066;--soft:#33261d;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.45}
+img{max-width:100%}
+[hidden]{display:none!important}
+input,textarea,button{font:inherit;color:inherit}
+.hero{background:var(--road);color:var(--hero-fg);padding:18px 16px 36px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:12px;height:6px;background:repeating-linear-gradient(90deg,var(--accent) 0 44px,transparent 44px 80px)}
+.wrap{max-width:560px;margin:0 auto}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.open{font-size:13px;font-weight:700;border-radius:999px;padding:4px 10px;background:#ffffff1a}
+.open b{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;background:#9aa39d;vertical-align:1px}
+.open.on b{background:#5cc185}
+.lang{display:flex}
+.lang button{background:none;border:1px solid #ffffff40;color:var(--hero-fg);font-weight:600;font-size:14px;padding:5px 12px;cursor:pointer}
+.lang button:first-child{border-radius:999px 0 0 999px}.lang button:last-child{border-radius:0 999px 999px 0;border-left:0}
+.lang button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+h1{font-family:var(--display);font-size:clamp(42px,12vw,62px);line-height:.95;margin:0;text-transform:uppercase;letter-spacing:.01em;overflow-wrap:anywhere}
+h1 .l2{display:block;color:var(--accent);font-size:.62em;margin-top:4px}
+.brandrow{display:flex;align-items:center;gap:14px}
+.brandrow h1{min-width:0}
+.brandrow .logo+h1{font-size:clamp(30px,9vw,54px);overflow-wrap:normal;word-break:normal;hyphens:none}
+.brandrow .logo{width:84px;height:84px;border-radius:50%;flex:none;object-fit:cover;box-shadow:0 0 0 3px #ffffff30}
+.shopmode .brandrow .logo{width:56px;height:56px}
+.sub{margin:10px 0 0;font-size:18px;color:var(--hero-sub)}
+.facts{display:grid;gap:6px;margin:14px 0 0;padding:0;list-style:none;font-size:15px;color:var(--hero-sub)}
+.facts li{display:flex;gap:8px}
+.facts b{color:var(--hero-fg);font-weight:600}
+main{padding-inline:16px;padding-block:20px 36px}
+form{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:grid;gap:16px}
+h2{font-family:var(--display);font-size:26px;margin:0;text-transform:uppercase;letter-spacing:.02em}
+.sec{display:grid;gap:12px;padding-top:14px;border-top:1px solid var(--line)}
+.sec>h3{margin:0;font-family:var(--display);font-size:19px;text-transform:uppercase;letter-spacing:.04em;display:flex;align-items:center;gap:10px}
+.dot{width:26px;height:26px;border-radius:50%;display:inline-grid;place-items:center;font-size:15px;color:var(--accent-ink);background:var(--accent);flex:none}
+.dot.b,.dot.i{color:#fff}
+.dot.b{background:var(--road);border:2px solid var(--accent)}
+.dot.i{background:var(--muted)}
+label{display:grid;gap:5px;font-weight:600;font-size:15px;min-width:0}
+label small{font-weight:400;color:var(--muted)}
+input,textarea{width:100%;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:13px 12px;font-size:17px;font-weight:400}
+textarea{min-height:64px;resize:vertical}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:440px){.two{grid-template-columns:1fr}}
+input:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.maprow{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.here{background:var(--accent);color:var(--accent-ink);border:0;border-radius:999px;padding:7px 14px;font-weight:600;font-size:14px;cursor:pointer}
+.here:disabled{opacity:.6}
+.map{font-size:14px;font-weight:600;color:var(--link,var(--accent));text-decoration:none}
+.map[aria-disabled="true"]{color:var(--muted);pointer-events:none}
+.geomsg{margin:0;font-size:14px;font-weight:600;background:var(--bg);border-radius:10px;padding:10px 12px}
+.geomsg.bad{color:var(--err)}
+.opts{display:flex;gap:8px;flex-wrap:wrap}
+.opt{border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:8px 14px;font-weight:600;font-size:15px;cursor:pointer}
+.opt[aria-pressed="true"]{background:var(--road);border-color:var(--road);color:#fff}
+.optlabel{font-weight:600;font-size:15px}
+.optlabel small{display:block;font-weight:400;color:var(--muted)}
+.paygrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.paygrid .opt{border-radius:12px;padding:12px 6px;display:grid;justify-items:center;gap:6px;font-size:15px;line-height:1.15;text-align:center;border-width:2px}
+.paygrid .opt .pi{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-size:20px;font-weight:800;line-height:1}
+.pi.cash{background:#e3f1e6}.pi.wave{background:#1dc8f2;color:#fff}.pi.om{background:#ff7900;color:#fff}
+.paygrid .opt[aria-pressed="true"]{background:var(--soft);border-color:var(--accent);color:var(--fg);box-shadow:inset 0 0 0 1px var(--accent)}
+.paygrid .opt[aria-pressed="true"]::after{content:"✓";font-weight:800;color:var(--fg)}
+.paynum{font-size:14px;background:var(--soft);border-radius:10px;padding:10px 12px}
+.paynum b{user-select:all}
+.send{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--wa);color:#fff;border-radius:12px;padding:16px;font-family:var(--display);font-size:24px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;text-decoration:none;text-align:center}
+.send svg{flex:none}
+.msg{font-size:15px;font-weight:600;color:var(--err);margin:0}
+.hint{font-size:14px;color:var(--muted);text-align:center;margin:0}
+.closed{font-size:14px;background:var(--soft);border-radius:10px;padding:10px 12px;margin:0}
+.voice{display:flex;align-items:center;gap:14px;border:2px solid var(--wa);color:var(--fg);background:var(--surface);border-radius:14px;padding:14px 16px;text-decoration:none}
+.voice .ic{font-size:34px;line-height:1}
+.voice b{display:block;font-size:19px;color:var(--wa)}
+.voice small{display:block;font-size:14px;color:var(--muted)}
+.or{text-align:center;font-size:14px;font-weight:600;color:var(--muted);display:flex;align-items:center;gap:10px}
+.or::before,.or::after{content:"";flex:1;border-top:1px solid var(--line)}
+.more{border:1px solid var(--line);border-radius:12px;padding:0 14px}
+.more>summary{cursor:pointer;padding:14px 0;font-weight:700;font-size:16px;list-style:none;display:grid;gap:2px}
+.more>summary::-webkit-details-marker{display:none}
+.more>summary span::before{content:"＋ ";color:var(--accent)}
+.more[open]>summary span::before{content:"－ "}
+.more>summary small{font-weight:400;font-size:14px;color:var(--muted)}
+.more[open]{padding-bottom:14px}
+.more .sec:first-of-type{padding-top:0}
+.shopmode .sub,.shopmode .facts{display:none}
+.shopmode .hero{padding-bottom:30px}
+.shop{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:grid;gap:16px}
+.shophead{display:flex;gap:12px;align-items:center;background:var(--soft);border-radius:12px;padding:12px 14px}
+.shophead .ic{font-size:34px;line-height:1}
+.shophead b{display:block;font-family:var(--display);font-size:26px;text-transform:uppercase;line-height:1.05;overflow-wrap:anywhere}
+.shophead small{display:block;font-size:14px;color:var(--muted);overflow-wrap:anywhere}
+.big{gap:8px}
+.big .bl{display:flex;align-items:center;gap:10px;font-size:19px;font-weight:700}
+.big .ic{font-size:30px;line-height:1}
+.big input{font-size:26px;padding:14px 14px;font-weight:600;letter-spacing:.02em}
+.big small{font-size:14px}
+.send .ic{font-size:28px}
+footer{text-align:center;color:var(--muted);font-size:14px;padding:0 16px 30px}
+footer b{user-select:all;color:var(--fg)}
+@media (prefers-reduced-motion:no-preference){.send{transition:filter .15s}.send:active{filter:brightness(.9)}}
+</style>
+
+<header class="hero"><div class="wrap">
+  <div class="topbar">
+    <span class="open" id="open"><b></b><span id="openT"></span></span>
+    <div class="lang" role="group" aria-label="Langue / Làkk">
+      <button type="button" data-lang="fr">Français</button><button type="button" data-lang="wo">Wolof</button>
+    </div>
+  </div>
+  <div class="brandrow"><img class="logo" id="logo" alt="" hidden><h1><span id="bizName"></span><span class="l2" data-t="h1b"></span></h1></div>
+  <p class="sub" id="slogan"></p>
+  <ul class="facts">
+    <li id="fHours"><span>🕒</span><span></span></li>
+    <li id="fZones"><span>📍</span><span></span></li>
+    <li id="fPrice"><span>💰</span><span></span></li>
+  </ul>
+</div></header>
+
+<main><div class="wrap">
+  <form id="form" novalidate>
+    <h2 data-t="h2"></h2>
+    <a class="voice" id="voice" href="#" target="_blank" rel="noopener"><span class="ic">🎤</span><span><b data-t="voiceB"></b><small data-t="voiceS"></small></span></a>
+    <div class="or" data-t="orWrite"></div>
+
+    <div class="sec" style="border-top:0;padding-top:0">
+      <h3><span class="dot i">1</span><span data-t="secYou"></span></h3>
+      <div class="two">
+        <label><span data-t="name"></span><input id="nome" autocomplete="name" maxlength="80"></label>
+        <label><span data-t="phone"></span><input id="telefono" type="tel" inputmode="tel" autocomplete="tel" maxlength="30" placeholder="77 000 00 00"></label>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h3><span class="dot">A</span><span data-t="secFrom"></span></h3>
+      <label><span data-t="addr"></span><small data-t="addrHint"></small><input id="ritiro" maxlength="300"></label>
+      <div class="maprow"><button type="button" class="here" data-for="ritiro" data-t="here"></button></div>
+    </div>
+
+    <div class="sec">
+      <h3><span class="dot b">B</span><span data-t="secTo"></span></h3>
+      <label><span data-t="addr"></span><small data-t="addrHint"></small><input id="consegna" maxlength="300"></label>
+      <div class="maprow"><button type="button" class="here" data-for="consegna" data-t="here"></button></div>
+    </div>
+    <p class="geomsg" id="geomsg" hidden></p>
+
+    <details class="more" id="more"><summary><span data-t="more"></span><small data-t="moreS"></small></summary>
+    <div class="sec" style="border-top:0">
+      <h3><span class="dot i">👤</span><span data-t="secRecv"></span></h3>
+      <div class="two">
+        <label><span data-t="rname"></span><small data-t="rnameHint"></small><input id="rname" maxlength="80"></label>
+        <label><span data-t="rphone"></span><small data-t="rphoneHint"></small><input id="rphone" type="tel" inputmode="tel" maxlength="30" placeholder="77 000 00 00"></label>
+      </div>
+    </div>
+    <div class="sec">
+      <h3><span class="dot i">📦</span><span data-t="secWhat"></span></h3>
+      <label><span data-t="what"></span><input id="cosa" maxlength="200" data-ph="whatPh"></label>
+      <div class="optlabel" data-t="size"></div>
+      <div class="opts" data-group="size">
+        <button type="button" class="opt" data-v="S" data-t="sizeS"></button><button type="button" class="opt" data-v="M" data-t="sizeM"></button><button type="button" class="opt" data-v="L" data-t="sizeL"></button>
+      </div>
+      <div class="optlabel" data-t="when"></div>
+      <div class="opts" data-group="when">
+        <button type="button" class="opt" data-v="now" aria-pressed="true" data-t="now"></button><button type="button" class="opt" data-v="later" data-t="later"></button>
+      </div>
+      <label id="laterBox" hidden><span data-t="laterL"></span><input id="later" maxlength="60" data-ph="laterPh"></label>
+    </div>
+
+    <div class="sec">
+      <h3><span class="dot i">₣</span><span data-t="secPay"></span></h3>
+      <div class="optlabel" data-t="payer"></div>
+      <div class="opts" data-group="payer">
+        <button type="button" class="opt" data-v="exp" aria-pressed="true" data-t="payMe"></button><button type="button" class="opt" data-v="dest" data-t="payDest"></button>
+      </div>
+      <div id="codBox">
+        <label><span data-t="cod"></span><small data-t="codHint"></small><input id="cod" type="number" inputmode="numeric" min="0" step="500" placeholder="0"></label>
+      </div>
+    </div>
+
+    </details>
+
+    <div class="sec" id="paySec">
+      <h3><span class="dot">💰</span><span data-t="method"></span></h3>
+      <div class="opts paygrid" id="methods" data-group="method"></div>
+      <p class="paynum" id="paynum" hidden></p>
+    </div>
+
+    <div class="sec">
+      <label><span data-t="note"></span><small data-t="opt"></small><textarea id="note" maxlength="500" data-ph="notePh"></textarea></label>
+    </div>
+
+    <p class="closed" id="closedNote" hidden></p>
+    <p class="msg" id="msg" hidden></p>
+    <a class="send" id="send" href="#" target="_blank" rel="noopener">
+      <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+      <span data-t="send"></span>
+    </a>
+    <p class="hint" data-t="hint"></p>
+  </form>
+
+  <section id="shop" class="shop" hidden>
+    <div class="shophead"><span class="ic">🏪</span><span><b id="shopName"></b><small id="shopAdr"></small></span></div>
+    <label class="big"><span class="bl"><span class="ic">📞</span><span data-t="shTel"></span></span><input id="sh-tel" type="tel" inputmode="tel" maxlength="30" placeholder="77 000 00 00" autocomplete="off"></label>
+    <label class="big"><span class="bl"><span class="ic">📍</span><span data-t="shWhere"></span></span><input id="sh-where" maxlength="200" autocomplete="off"></label>
+    <label class="big"><span class="bl"><span class="ic">💰</span><span data-t="shCod"></span></span><input id="sh-cod" type="number" inputmode="numeric" min="0" step="500" placeholder="0" autocomplete="off"><small data-t="shCodS"></small></label>
+    <p class="msg" id="sh-msg" hidden></p>
+    <a class="send" id="sh-send" href="#" target="_blank" rel="noopener"><span class="ic">🛵</span><span data-t="shSend"></span></a>
+    <div class="or" data-t="or"></div>
+    <a class="voice" id="sh-voice" href="#" target="_blank" rel="noopener"><span class="ic">🎤</span><span><b data-t="voiceB"></b><small data-t="shVoiceS"></small></span></a>
+    <p class="hint" data-t="shHint"></p>
+  </section>
+</div></main>
+<footer id="foot"></footer>
+
+<script>
+const CFG=/*CFG*/{"name":"Chaya Seck","slogan":"","whatsapp":"221773573055","open":"09:00","close":"21:00","days":"Lundi – Samedi","zones":"Touba","priceFrom":0,"pay":{"cash":true,"wave":true,"om":true},"payNumber":"77 357 30 55","cod":true,"siteUrl":"https://seck93723-lang.github.io/touba/","logo":"logo.png","theme":{"road":"#13294b","accent":"#f5b301","ink":"#13294b","linkLight":"#1f3b73","linkDark":"#f5b301","soft":"#fdf1cc","softDark":"#3a3217"}}/*CFG*/;
+const TX={
+fr:{h1b:"Livraison à moto",h1short:"à moto",slogan:"Je récupère et je livre pour vous, vite, partout en ville.",h2:"Demander une livraison",
+ hours:"Ouvert {o} – {c}",zones:"Zones : ",priceFrom:"À partir de {p}",openNow:"Ouvert maintenant",closedNow:"Fermé · ouvre à {o}",
+ secYou:"Vous",name:"Votre nom",phone:"Votre téléphone",
+ secFrom:"Où je récupère",secTo:"Où je livre",addr:"Adresse",addrHint:"Quartier, rue, repère (ex. à côté de la pharmacie) ou lien Google Maps",
+ here:"📍 Je suis ici",map:"Vérifier sur la carte",rname:"Personne qui reçoit",rnameHint:"Si ce n'est pas vous",rphone:"Son téléphone",rphoneHint:"Pour l'appeler à l'arrivée",
+ geoWait:"Recherche de votre position…",geoOk:"Position ajoutée ✓",geoNo:"Position non disponible. Écrivez l'adresse, et après le message envoyez votre position dans WhatsApp (<b>+</b> › <b>Position</b>).",
+ secWhat:"Le colis",what:"Qu'est-ce que je transporte ?",whatPh:"Ex. un carton, des documents, un téléphone",size:"Taille",sizeS:"Petit",sizeM:"Moyen",sizeL:"Grand",
+ when:"Quand ?",now:"Maintenant",later:"Plus tard",laterL:"Jour et heure",laterPh:"Ex. demain à 10h",
+ secPay:"Paiement",payer:"Qui paie la livraison ?",payMe:"Moi",payDest:"La personne qui reçoit",method:"Comment vous payez ?",payReq:"Choisissez comment vous payez : Espèces, Wave ou Orange Money.",cash:"Espèces",wave:"Wave",om:"Orange Money",
+ payNum:"Wave / Orange Money : ",cod:"Paiement à la livraison",codHint:"Le livreur encaisse cette somme auprès de la personne qui reçoit et vous la ramène (FCFA). Laissez vide sinon.",
+ note:"Précisions",opt:"(facultatif)",notePh:"Étage, personne à demander, fragile…",
+ send:"Envoyer sur WhatsApp",hint:"WhatsApp s'ouvre avec votre demande déjà écrite. Appuyez juste sur envoyer.",
+ closedNote:"Nous sommes fermés maintenant. Envoyez quand même : on vous répond dès l'ouverture ({o}).",
+ errReq:"Remplissez votre nom, où je récupère et où je livre.",errTel:"Écrivez un numéro de téléphone valide.",
+ voiceB:"Envoyer un vocal",voiceS:"Pas envie d'écrire ? Dites-nous tout en vocal sur WhatsApp.",orWrite:"ou écrivez ici",or:"ou",
+ more:"Plus de détails",moreS:"Personne qui reçoit, colis, paiement (facultatif)",secRecv:"Personne qui reçoit",
+ shTel:"Téléphone du client",shWhere:"Quartier du client",shCod:"Argent à prendre au client",shCodS:"FCFA · laissez vide si le client a déjà payé",
+ shSend:"Envoyer",shVoiceS:"Dites le numéro et le quartier du client en vocal.",shHint:"WhatsApp s'ouvre. Appuyez sur envoyer.",shErr:"Écrivez le téléphone du client."},
+wo:{h1b:"Livraison ak moto",h1short:"ak moto",slogan:"Dama jël say yëf, yóbbu leen gaaw, fépp ci biir dëkk bi.",h2:"Laaj ab livraison",
+ hours:"Dañu ubbi {o} – {c}",zones:"Gox yi : ",priceFrom:"Njëg gi tàmbalee ci {p}",openNow:"Ubbi na leegi",closedNow:"Tëj na · dinañu ubbi {o}",
+ secYou:"Yow",name:"Sa tur",phone:"Sa nimero telefon",
+ secFrom:"Fan laa koy jëlé",secTo:"Fan laa koy yóbbu",addr:"Adrees",addrHint:"Gox, mbedd, lu ñuy xame bérab bi (misaal: ci wetu farmasi bi) walla lien Google Maps",
+ here:"📍 Maa ngi fii",map:"Seet ko ci kart bi",rname:"Ki koy jot",rnameHint:"Su dul yow",rphone:"Nimeroom",rphoneHint:"Ngir woo ko bu ma agsee",
+ geoWait:"Maa ngi seet sa position…",geoOk:"Position bi dugg na ✓",geoNo:"Position mënul a jóg. Bindal adrees bi, te bu nga yónnee message bi yónneel sa position ci WhatsApp (<b>+</b> › <b>Position</b>).",
+ secWhat:"Yëf yi",what:"Lan laa war a yóbbu ?",whatPh:"Misaal: ab kartoŋ, ay kayit, ab telefon",size:"Ni mu rëye",sizeS:"Tuuti",sizeM:"Diggante",sizeL:"Rëy",
+ when:"Kañ ?",now:"Leegi",later:"Ginaaw",laterL:"Bés ak waxtu",laterPh:"Misaal: ëllëg ci 10h",
+ secPay:"Fey",payer:"Kan moy fey livraison bi ?",payMe:"Man",payDest:"Ki koy jot",method:"Naka ngay fey ?",payReq:"Tànnal naka ngay fey : xaalis loxo, Wave walla Orange Money.",cash:"Xaalis loxo",wave:"Wave",om:"Orange Money",
+ payNum:"Wave / Orange Money : ",cod:"Fey bu yëf yi agsee",codHint:"Livreur bi dina jot xaalis bii ci ki koy jot, indil la ko (FCFA). Bul ci dara bindoo su dul loolu.",
+ note:"Leeral yu ëpp",opt:"(bu la neexee)",notePh:"Étage, ki ma war a laaj, yëf yu yomb a toj…",
+ send:"Yónne ko ci WhatsApp",hint:"WhatsApp dina ubbiku ak sa laaj bu ñu bind ba noppi. Bësal rekk « envoyer ».",
+ closedNote:"Tëj nanu leegi. Yónnee ko rekk : dinañu la tontu bu nu ubbee ({o}).",
+ errReq:"Bindal sa tur, fan laa koy jëlé ak fan laa koy yóbbu.",errTel:"Bindal ab nimero telefon bu baax.",
+ voiceB:"Yónne ab vocal",voiceS:"Soo bëggul bind, wax nu lépp ci vocal ci WhatsApp.",orWrite:"walla bind fii",or:"walla",
+ more:"Leeral yu ëpp",moreS:"Ki koy jot, yëf yi, fey (bu la neexee)",secRecv:"Ki koy jot",
+ shTel:"Nimero kiliyaŋ bi",shWhere:"Goxu kiliyaŋ bi",shCod:"Xaalis bi ñuy jël ci kiliyaŋ bi",shCodS:"FCFA · bul ci dara bind su kiliyaŋ bi feyee ba noppi",
+ shSend:"Yónne",shVoiceS:"Wax nimero ak goxu kiliyaŋ bi ci vocal.",shHint:"WhatsApp dina ubbiku. Bësal « envoyer ».",shErr:"Bindal nimero kiliyaŋ bi."}
+};
+const $=id=>document.getElementById(id);
+const v=id=>$(id).value.trim();
+const NUM=String(CFG.whatsapp||"").replace(/\D/g,"");
+const fcfa=n=>Math.round(+n||0).toLocaleString("fr-FR").replace(/[  ]/g," ")+" FCFA";
+const pretty=d=>{if(!d)return "";if(d.startsWith("221")&&d.length===12)return "+221 "+d.slice(3,5)+" "+d.slice(5,8)+" "+d.slice(8,10)+" "+d.slice(10);if(d.startsWith("39")&&d.length>=11)return "+39 "+d.slice(2,5)+" "+d.slice(5,8)+" "+d.slice(8);if(d.startsWith("33")&&d.length===11)return "+33 "+d.slice(2,3)+" "+d.slice(3).replace(/(\d{2})(?=\d)/g,"$1 ");return "+"+d};
+let LANG="fr";
+try{const l=localStorage.getItem("lv_lang");if(l==="wo"||l==="fr")LANG=l}catch(e){}
+if(location.hash==="#wo")LANG="wo";if(location.hash==="#fr")LANG="fr";
+const tx=(k,o)=>{let s=TX[LANG][k]||"";if(o)for(const x in o)s=s.split("{"+x+"}").join(o[x]);return s};
+const SEL={size:"",when:"now",payer:"exp",method:""};
+const QP=new URLSearchParams(location.search);
+const SHOP=QP.get("boutique")?{n:QP.get("boutique"),t:QP.get("tel")||"",a:QP.get("adr")||"",p:QP.get("paie")==="dest"?"dest":"exp"}:null;
+
+function isOpen(){
+  if(!CFG.open||!CFG.close)return null;
+  const [oh,om]=CFG.open.split(":").map(Number),[ch,cm]=CFG.close.split(":").map(Number);
+  const d=new Date(),m=d.getHours()*60+d.getMinutes(),o=oh*60+(om||0),c=ch*60+(cm||0);
+  return o<=c?(m>=o&&m<c):(m>=o||m<c);
+}
+function applyTheme(){
+  const th=CFG.theme;if(!th||document.getElementById("themecss"))return;
+  const st=document.createElement("style");st.id="themecss";
+  const base=`--road:${th.road};--accent:${th.accent};--accent-ink:${th.ink};`,dk=base+`--link:${th.linkDark};--soft:${th.softDark};`;
+  st.textContent=`html:root{${base}--link:${th.linkLight};--soft:${th.soft}}@media (prefers-color-scheme:dark){html:root:not([data-theme="light"]){${dk}}}html:root[data-theme="dark"]{${dk}}`;
+  document.body.appendChild(st);
+  const m=document.querySelector('meta[name="theme-color"]');if(m)m.content=th.road;
+}
+function paint(){
+  applyTheme();
+  document.documentElement.lang=LANG==="wo"?"wo":"fr";
+  document.title=(CFG.name||"Livraison")+" · "+tx("h1b");
+  document.querySelectorAll("[data-t]").forEach(el=>el.innerHTML=tx(el.dataset.t));
+  document.querySelectorAll("[data-ph]").forEach(el=>el.placeholder=tx(el.dataset.ph));
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lang===LANG));
+  $("bizName").textContent=CFG.name||"Livraison";
+  document.querySelector("h1 .l2").textContent=/livraison/i.test(CFG.name||"")?tx("h1short"):tx("h1b");
+  if(CFG.logo){$("logo").src=CFG.logo;$("logo").alt=CFG.name||"";$("logo").hidden=false}
+  $("slogan").textContent=CFG.slogan||tx("slogan");
+  const hours=CFG.open&&CFG.close?tx("hours",{o:CFG.open,c:CFG.close})+(CFG.days?" · "+CFG.days:""):"";
+  $("fHours").hidden=!hours;$("fHours").lastChild.textContent=hours;
+  $("fZones").hidden=!CFG.zones;$("fZones").lastChild.innerHTML=tx("zones")+"<b></b>";$("fZones").querySelector("b").textContent=CFG.zones||"";
+  $("fPrice").hidden=!CFG.priceFrom;$("fPrice").lastChild.textContent=CFG.priceFrom?tx("priceFrom",{p:fcfa(CFG.priceFrom)}):"";
+  const op=isOpen();$("open").hidden=op===null;$("open").classList.toggle("on",!!op);
+  $("openT").textContent=op?tx("openNow"):tx("closedNow",{o:CFG.open||""});
+  $("closedNote").hidden=op!==false;$("closedNote").textContent=tx("closedNote",{o:CFG.open||""});
+  const ms=["cash","wave","om"].filter(k=>CFG.pay&&CFG.pay[k]);
+  if(!ms.includes(SEL.method))SEL.method="";
+  const PI={cash:"💵",wave:"W",om:"OM"};
+  $("methods").innerHTML=ms.map(k=>`<button type="button" class="opt" data-v="${k}" aria-pressed="${SEL.method===k}"><span class="pi ${k}">${PI[k]}</span><span>${tx(k)}</span></button>`).join("");
+  $("paySec").hidden=!ms.length;
+  const pn=String(CFG.payNumber||"").trim();
+  $("paynum").hidden=!(pn&&(SEL.method==="wave"||SEL.method==="om"));
+  $("paynum").innerHTML=tx("payNum")+"<b></b>";$("paynum").querySelector("b").textContent=pn;
+  $("codBox").hidden=!CFG.cod;
+  document.querySelectorAll(".opts[data-group]").forEach(g=>g.querySelectorAll(".opt").forEach(b=>b.setAttribute("aria-pressed",SEL[g.dataset.group]===b.dataset.v)));
+  $("laterBox").hidden=SEL.when!=="later";
+  $("foot").innerHTML=(CFG.name?"":"")+"<span></span> · WhatsApp : <b></b>";
+  $("foot").querySelector("span").textContent=CFG.name||"Livraison";$("foot").querySelector("b").textContent=pretty(NUM);
+  $("msg").hidden=true;build();
+  if(SHOP){document.body.classList.add("shopmode");$("form").hidden=true;$("shop").hidden=false;$("shopName").textContent=SHOP.n;$("shopAdr").textContent=SHOP.a?"📍 "+SHOP.a:"";
+    document.title=SHOP.n+" · "+tx("h1b");buildShop()}
+}
+function shopHead(){return ["🏪 Boutique : "+SHOP.n,"Téléphone : "+SHOP.t,"Récupérer à : "+(SHOP.a||SHOP.n)]}
+/* La richiesta arriva anche da sola nell'app di gestione (canale segreto, uguale nell'app) */
+const CANAL="liv-touba-a11c245ebb4c";
+let MSGTXT="",SHOPTXT="";
+function pushApp(txt){try{fetch("https://ntfy.sh/"+CANAL,{method:"POST",body:txt+"\n#LIV",keepalive:true}).catch(()=>{})}catch(e){}}
+function buildShop(){
+  const L=shopHead();
+  L.push("Tél. destinataire : "+v("sh-tel"),"Livrer à : "+(v("sh-where")||"?"));
+  if(+v("sh-cod")>0)L.push("À encaisser : "+fcfa(v("sh-cod")));
+  L.push("Livraison payée par : "+(SHOP.p==="dest"?"Destinataire":"Expéditeur"));
+  SHOPTXT=L.join("\n");
+  $("sh-send").href="https://wa.me/"+NUM+"?text="+encodeURIComponent(L.join("\n"));
+  $("sh-voice").href="https://wa.me/"+NUM+"?text="+encodeURIComponent(shopHead().concat(["Livraison payée par : "+(SHOP.p==="dest"?"Destinataire":"Expéditeur"),"🎤 Détails du client en vocal"]).join("\n"));
+}
+const FR={S:"Petit",M:"Moyen",L:"Grand",cash:"Espèces",wave:"Wave",om:"Orange Money"};
+function build(){
+  const L=["Bonjour, je veux une livraison 🛵",
+   "Nom : "+v("nome"),"Téléphone : "+v("telefono"),
+   "Récupérer à : "+v("ritiro"),"Livrer à : "+v("consegna")];
+  if(v("rname"))L.push("Destinataire : "+v("rname"));
+  if(v("rphone"))L.push("Tél. destinataire : "+v("rphone"));
+  L.push("Quoi : "+v("cosa")+(SEL.size?" ("+FR[SEL.size]+")":""));
+  L.push("Quand : "+(SEL.when==="later"?(v("later")||"Plus tard"):"Maintenant"));
+  L.push("💰 Paiement : "+(SEL.method?FR[SEL.method]:"?"));
+  L.push("Livraison payée par : "+(SEL.payer==="dest"?"Destinataire":"Expéditeur"));
+  if(CFG.cod&&+v("cod")>0)L.push("À encaisser : "+fcfa(v("cod")));
+  if(v("note"))L.push("Précisions : "+v("note").replace(/\s*\n\s*/g," "));
+  MSGTXT=L.join("\n");
+  $("send").href="https://wa.me/"+NUM+"?text="+encodeURIComponent(L.join("\n"));
+  $("voice").href="https://wa.me/"+NUM+"?text="+encodeURIComponent("Bonjour, je veux une livraison 🛵\n🎤 Je vous envoie les détails en vocal.");
+}
+function geoMsg(h,bad){const m=$("geomsg");m.innerHTML=h;m.className="geomsg"+(bad?" bad":"");m.hidden=false}
+document.addEventListener("click",e=>{
+  const b=e.target.closest("button");if(!b)return;
+  if(b.dataset.lang){LANG=b.dataset.lang;try{localStorage.setItem("lv_lang",LANG)}catch(x){}paint();return}
+  const g=b.closest(".opts[data-group]");
+  if(g){const k=g.dataset.group;SEL[k]=(k==="size"&&SEL[k]===b.dataset.v)?"":b.dataset.v;paint();return}
+  if(b.classList.contains("here")){
+    const input=$(b.dataset.for);
+    if(!navigator.geolocation){geoMsg(tx("geoNo"),true);return}
+    b.disabled=true;geoMsg(tx("geoWait"));
+    try{navigator.geolocation.getCurrentPosition(p=>{
+      input.value="https://maps.google.com/?q="+p.coords.latitude.toFixed(6)+","+p.coords.longitude.toFixed(6);
+      build();geoMsg(tx("geoOk"));b.disabled=false;
+    },()=>{geoMsg(tx("geoNo"),true);b.disabled=false},{enableHighAccuracy:true,timeout:15000,maximumAge:60000})}
+    catch(x){geoMsg(tx("geoNo"),true);b.disabled=false}
+  }
+});
+$("form").addEventListener("input",()=>{build();$("msg").hidden=true});
+$("form").addEventListener("submit",e=>e.preventDefault());
+$("send").addEventListener("click",e=>{
+  build();let err="";
+  if(!v("nome")||!v("ritiro")||!v("consegna"))err=tx("errReq");
+  else if(v("telefono").replace(/\D/g,"").length<7)err=tx("errTel");
+  else if(!$("paySec").hidden&&!SEL.method)err=tx("payReq");
+  if(err){e.preventDefault();$("msg").textContent=err;$("msg").hidden=false;$("msg").scrollIntoView({block:"center"});return}
+  pushApp(MSGTXT);
+});
+$("shop").addEventListener("input",()=>{if(SHOP)buildShop();$("sh-msg").hidden=true});
+$("sh-send").addEventListener("click",e=>{
+  buildShop();
+  if(v("sh-tel").replace(/\D/g,"").length<7){e.preventDefault();$("sh-msg").textContent=tx("shErr");$("sh-msg").hidden=false;$("sh-tel").focus();return}
+  pushApp(SHOPTXT);
+  setTimeout(()=>{["sh-tel","sh-where","sh-cod"].forEach(id=>$(id).value="");buildShop()},1500);
+});
+paint();
+</script>
+
+</body>
+</html>
